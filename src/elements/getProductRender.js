@@ -68,7 +68,7 @@ const renderModals = () => `
     <div id="updateModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative p-4 w-full max-w-2xl max-h-full">
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <div id="closeupdate" class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                     <h3 class="text-xl font-medium text-gray-900 dark:text-white">Actualizar Producto</h3>
                     <button type="button" class="close-modal text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white">
                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -143,11 +143,13 @@ const renderModals = () => `
 `;
 
 
+
 const handleUpdateFormSubmit = async (e, modal) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const productId = formData.get('productId');
     const sounds = createSoundEffects();
+    
 
     try {
         await updateProductById(productId, formData);
@@ -162,6 +164,7 @@ const handleUpdateFormSubmit = async (e, modal) => {
             text: "El producto se actualizó exitosamente",
             icon: "success"
         });
+        
     } catch (error) {
         console.error("Error al actualizar el producto:", error);
         Swal.fire({
@@ -274,11 +277,7 @@ const handleDeleteProduct = async (productId) => {
     
         } catch (error) {
             console.error("Error al renderizar productos:", error);
-            Swal.fire({
-                title: "Error",
-                text: "No se pudieron cargar los productos",
-                icon: "error"
-            });
+
         }
     };
     
@@ -388,6 +387,23 @@ const handleDeleteProduct = async (productId) => {
       
         renderTableStructure();
         renderProductos();
+
+
+const closeModalButtons = document.querySelectorAll('.close-modal');
+
+closeModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+
+        const updateModal = new Modal(document.getElementById('updateModal'));
+        const viewModal = new Modal(document.getElementById('viewModal'));
+        updateModal.hide();
+        viewModal.hide()
+    });
+});
+
+
+
+        
     };
     
     export {

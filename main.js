@@ -1,3 +1,4 @@
+import { Modal } from "flowbite";
 import FormularioParaCrearUsuario from "./src/elements/addNewUserRender";
 import FormularioParaCrearProducto from "./src/elements/addProductoRender";
 import {initializeProductos} from "./src/elements/getProductRender";
@@ -44,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
             FormularioParaCrearProducto()
             FormularioParaCrearUsuario()
             RenderUsers()
+            
         }
     };
 
@@ -143,5 +145,4 @@ themeToggleBtn.addEventListener('click', function() {
     }
     
 });
-
 

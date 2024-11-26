@@ -40,14 +40,14 @@ const FormularioParaCrearUsuario = () => {
                     </div>
 
                     <div class="mb-5">
-                        <label for="dropzone-file" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Foto de perfil</label>
+                        <label for="dropzone-file5" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Foto de perfil</label>
                         <div class="relative">
-                            <div id="dropzone-container" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-                                <div id="preview-container" class="absolute inset-0 flex items-center justify-center">
-                                    <img id="image-preview" class="max-w-full max-h-full object-contain rounded-lg hidden" alt="Vista previa"/>
+                            <div id="dropzone-container5" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                                <div id="preview-container5" class="absolute inset-0 flex items-center justify-center">
+                                    <img id="image-preview5" class="max-w-full max-h-full object-contain rounded-lg hidden" alt="Vista previa"/>
                                 </div>
                                 
-                                <div id="upload-interface" class="flex flex-col items-center justify-center p-6 text-center">
+                                <div id="upload-interface5" class="flex flex-col items-center justify-center p-6 text-center">
                                     <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                     </svg>
@@ -56,9 +56,9 @@ const FormularioParaCrearUsuario = () => {
                                     </p>
                                     <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG o GIF (MAX. 800x400px)</p>
                                 </div>
-                                <input id="dropzone-file" name="imagen" type="file" class="hidden" accept="image/*" />
+                                <input id="dropzone-file5" name="imagen" type="file" class="hidden" accept="image/*" />
                             </div>
-                            <button type="button" id="remove-image" class="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1 hidden hover:bg-red-600 focus:outline-none">
+                            <button type="button" id="remove-image5" class="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1 hidden hover:bg-red-600 focus:outline-none">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
@@ -82,11 +82,11 @@ const FormularioParaCrearUsuario = () => {
     };
 
     const setupImageHandling = () => {
-        const dropzoneContainer = document.getElementById("dropzone-container");
-        const dropzoneFileInput = document.getElementById("dropzone-file");
-        const imagePreview = document.getElementById("image-preview");
-        const uploadInterface = document.getElementById("upload-interface");
-        const removeImageButton = document.getElementById("remove-image");
+        const dropzoneContainer = document.getElementById("dropzone-container5");
+        const dropzoneFileInput = document.getElementById("dropzone-file5");
+        const imagePreview = document.getElementById("image-preview5");
+        const uploadInterface = document.getElementById("upload-interface5");
+        const removeImageButton = document.getElementById("remove-image5");
 
         if (!dropzoneContainer || !dropzoneFileInput || !imagePreview || !uploadInterface || !removeImageButton) return;
 
@@ -188,7 +188,7 @@ const FormularioParaCrearUsuario = () => {
                 const edad = form.querySelector('#edad').value;
                 const email = form.querySelector('#email').value;
                 const password = form.querySelector('#password').value;
-                const fileInput = document.getElementById("dropzone-file");
+                const fileInput = document.getElementById("dropzone-file5");
 
                 formData.append('nombre', nombre);
                 formData.append('apellido', apellido);
@@ -220,9 +220,9 @@ const FormularioParaCrearUsuario = () => {
                     
 
                     form.reset();
-                    const imagePreview = document.getElementById("image-preview");
-                    const uploadInterface = document.getElementById("upload-interface");
-                    const removeImageButton = document.getElementById("remove-image");
+                    const imagePreview = document.getElementById("image-preview5");
+                    const uploadInterface = document.getElementById("upload-interface5");
+                    const removeImageButton = document.getElementById("remove-image5");
                     
                     if (imagePreview && uploadInterface && removeImageButton) {
                         imagePreview.src = '';

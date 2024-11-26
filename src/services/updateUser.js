@@ -2,7 +2,8 @@ const UpdateUserService = async (userId, formData) => {
     try {
         const response = await fetch(`${import.meta.env.VITE_API_URL}/users-update/${userId}`, {
             method: 'PUT',
-            body: formData
+            body: formData,
+            credentials: 'include', 
         });
         return response;
     } catch (error) {
